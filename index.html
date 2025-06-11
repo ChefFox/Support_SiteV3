@@ -12,43 +12,44 @@
             background-size: cover;
             font-family: Arial, sans-serif;
         }
-        .overlay {
+        .overlay, .fade-black {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2em;
-            border-radius: 10px;
-            text-align: center;
-            opacity: 0;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             transition: opacity 1.5s ease-in-out;
         }
-        .overlay h1 {
-            margin-bottom: 1em;
-            font-size: 1.5em;
+        .overlay {
+            background: rgba(255, 255, 255, 0.95);
+            flex-direction: column;
+            opacity: 0;
+            z-index: 2;
         }
-        .overlay input {
-            padding: 0.5em;
-            font-size: 1em;
+        .overlay h1 {
+            font-size: 1.8em;
             margin-bottom: 1em;
-            width: 80%;
+        }
+        .overlay input, .overlay button {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+            padding: 0.5em;
         }
         .overlay button {
-            padding: 0.5em 1.5em;
-            font-size: 1em;
-            background-color: #0a662e;
+            background: #0a662e;
             color: white;
             border: none;
-            cursor: pointer;
             border-radius: 5px;
+            cursor: pointer;
         }
-        .overlay.visible {
-            opacity: 1;
-        }
-        .overlay.hidden {
+        .fade-black {
+            background: black;
             opacity: 0;
+            z-index: 1;
         }
+        .visible { opacity: 1; }
+        .hidden { opacity: 0; }
     </style>
 </head>
 <body class="splash">
@@ -57,12 +58,12 @@
         <input type="password" id="password" placeholder="Enter password" />
         <button onclick="checkPassword()">Enter</button>
     </div>
+    <div class="fade-black hidden" id="fade"></div>
     <script src="splash.js"></script>
     <script>
         setTimeout(() => {
-            const overlay = document.getElementById("overlay");
-            overlay.classList.remove("hidden");
-            overlay.classList.add("visible");
+            document.getElementById("overlay").classList.remove("hidden");
+            document.getElementById("overlay").classList.add("visible");
         }, 5000);
     </script>
 </body>
