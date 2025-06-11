@@ -3,26 +3,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Support Evidence Hub</title>
+  <title>Support Site V4_6</title>
   <link rel="stylesheet" href="assets/style.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
       font-size: 1.4em;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2em;
     }
-    .section-divider {
-      background-color: #4CAF50;
-      color: white;
-      padding: 1em;
-      margin-top: 2em;
+    .section-title {
       font-weight: bold;
-      border-radius: 5px;
+      margin-top: 3em;
+      margin-bottom: 0.5em;
+      padding-bottom: 0.3em;
+      border-bottom: 4px solid #4CAF50;
+      display: inline-block;
     }
-    img {
-      max-width: 100%;
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 1em;
+      scroll-snap-type: x mandatory;
+    }
+    .carousel img {
+      flex: 0 0 auto;
+      max-width: 300px;
       height: auto;
+      scroll-snap-align: center;
+      border-radius: 8px;
+    }
+    img.stacked {
+      max-width: 100%;
       margin-top: 1em;
-      cursor: pointer;
     }
     .download-links {
       margin-top: 2em;
@@ -40,32 +54,46 @@
       position: fixed;
       top: 20px;
       right: 20px;
+      width: 40px;
+      height: auto;
       cursor: pointer;
+    }
+    .footer-note {
+      font-size: 0.9em;
+      margin-top: 4em;
+      text-align: center;
+      color: #444;
     }
   </style>
 </head>
 <body>
-  <div class="section-divider">📄 Halifax Evidence</div>
-  <img src="assets/images/01-halifax-mortgage.png" alt="Halifax Mortgage" />
-  <img src="assets/images/02-halifax-equity.png" alt="Halifax Equity" />
+  <img src="assets/images/wizard.png" class="wizard-link" alt="Wizard" onclick="window.location.href='loan-details.html'" />
 
-  <div class="section-divider">📋 Job Offers</div>
-  <img src="assets/images/03-job-offer-ryan.png" alt="Job Offer Ryan" />
-  <img src="assets/images/04-job-offer-ian-1.png" alt="Job Offer Ian 1" />
-  <img src="assets/images/05-job-offer-ian-2.png" alt="Job Offer Ian 2" />
+  <h2 class="section-title">📄 Halifax Evidence</h2>
+  <img src="assets/images/01-halifax-mortgage.png" alt="Mortgage" class="stacked" />
+  <img src="assets/images/02-halifax-equity.png" alt="Equity" class="stacked" />
 
-  <div class="section-divider">📈 Training Costs</div>
-  <img src="assets/images/06-training-costs.png" alt="Training Costs" />
+  <h2 class="section-title">📋 Job Offers</h2>
+  <div class="carousel">
+    <img src="assets/images/03-job-offer-ryan.png" alt="Job Offer 1" />
+    <img src="assets/images/04-job-offer-ian-1.png" alt="Job Offer 2" />
+    <img src="assets/images/05-job-offer-ian-2.png" alt="Job Offer 3" />
+  </div>
 
-  <div class="section-divider">🐶 Roger’s Dentist</div>
-  <img src="assets/images/07-roger-dentist.jpeg" alt="Roger Looking Out" />
+  <h2 class="section-title">📈 Training Costs</h2>
+  <img src="assets/images/06-training-costs.png" alt="Training" class="stacked" />
 
-  <div class="section-divider">📂 Sample Documents</div>
+  <h2 class="section-title">🐶 Roger the Dog</h2>
+  <img src="assets/images/07-roger-dentist.jpeg" alt="Roger" class="stacked" style="max-width: 600px;" />
+
+  <h2 class="section-title">📂 Document Downloads</h2>
   <div class="download-links">
     <a href="assets/downloads/deed-of-trust.pdf" download>Deed of Trust (PDF)</a>
     <a href="assets/downloads/loan-agreement.pdf" download>Loan Agreement (PDF)</a>
   </div>
 
-  <img src="assets/images/wizard.png" class="wizard-link" alt="Wizard" onclick="window.location.href='loan-details.html'" />
+  <div class="footer-note">
+    © SideCode Gigs – Built fast, shared with purpose. Version 4.6
+  </div>
 </body>
 </html>
