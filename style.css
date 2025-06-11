@@ -1,1 +1,46 @@
-body { font-family: Arial, sans-serif; }
+
+body.splash {
+    margin: 0;
+    padding: 0;
+    background: url('assets/Gandolf.gif') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', sans-serif;
+}
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2em;
+    border-radius: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+.overlay h1 {
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+.overlay input {
+    padding: 0.5em;
+    font-size: 1em;
+    margin-bottom: 1em;
+    width: 80%;
+}
+.overlay button {
+    padding: 0.5em 1.5em;
+    font-size: 1em;
+    background-color: #0a662e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.hidden {
+    display: block;
+    opacity: 0;
+}
+.visible {
+    opacity: 1;
+}
