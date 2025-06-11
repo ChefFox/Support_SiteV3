@@ -3,10 +3,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Support Site V3</title>
+    <title>Support Evidence – SideCode Gigs</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .section-divider {
+            background: #0a662e;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 3em;
+        }
+        .caption {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 1em;
+        }
+        .image-grid img {
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal-content {
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin: 5% auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>This is the real site content!</h1>
-    <p>You got past Gandalf 🧙‍♂️</p>
+    <section>
+        <h1>Support Site: Evidence for Loan and Retraining</h1>
+        <p>This site was built in under 5 hours to transparently show key financial, career, and training information in support of a private family loan. All documents are real and personal.</p>
+    </section>
+
+    <div class="section-divider">Mortgage & Equity Evidence</div>
+    <section>
+        <p class="caption">These screenshots show my Halifax mortgage balance, equity position, and monthly outgoings — supporting loan affordability.</p>
+        <div class="image-grid">
+            <img src="assets/images/01-halifax-mortgage.png" alt="Halifax Mortgage">
+            <img src="assets/images/02-halifax-equity.png" alt="Halifax Equity">
+        </div>
+    </section>
+
+    <div class="section-divider">Job Offers</div>
+    <section>
+        <p class="caption">These real job offers show strong demand for Microsoft Copilot trainers — supporting my career move and repayment plan.</p>
+        <div class="image-grid" id="carousel">
+            <img src="assets/images/03-job-offer-ryan.png" alt="Job Offer Ryan">
+            <img src="assets/images/04-job-offer-ian-1.png" alt="Job Offer Ian 1">
+            <img src="assets/images/05-job-offer-ian-2.png" alt="Job Offer Ian 2">
+            <img src="assets/images/08-job-offer-freelance.png" alt="Freelance Copilot Trainer">
+        </div>
+    </section>
+
+    <div class="section-divider">Training Costs</div>
+    <section>
+        <p class="caption">The image below shows the cost of PL-900, PL-200, PL-400, and Train the Trainer certification — evidence of my financial investment in retraining.</p>
+        <img src="assets/images/06-training-costs.png" alt="Training bundle pricing table">
+    </section>
+
+    <div class="section-divider">Roger the Dog</div>
+    <section>
+        <p class="caption">Roger — who needs a doggie dentist — represents what we're also trying to protect. Family, wellbeing, and forward planning.</p>
+        <img src="assets/images/07-roger-dentist.jpeg" alt="Roger looking out car window" style="max-width:600px; width:100%; height:auto; display:block; margin:auto;">
+    </section>
+
+    <div class="section-divider">Document Downloads</div>
+    <section>
+        <p class="caption">These are example documents that outline the loan and property-based support agreements being proposed.</p>
+        <ul class="downloads">
+            <li><a href="assets/downloads/loan-agreement.pdf" download>📄 Loan Agreement</a></li>
+            <li><a href="assets/downloads/deed-of-trust.pdf" download>📄 Deed of Trust</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© SideCode Gigs – Built fast, shared with purpose. No other claims made.</p>
+    </footer>
+
+    <!-- Image Zoom Modal -->
+    <div id="imgModal" class="modal" onclick="this.style.display='none'">
+        <img class="modal-content" id="modalImage">
+    </div>
+    <script>
+        document.querySelectorAll('.image-grid img, section img').forEach(img => {
+            img.addEventListener('click', () => {
+                document.getElementById('modalImage').src = img.src;
+                document.getElementById('imgModal').style.display = 'block';
+            });
+        });
+    </script>
 </body>
 </html>
