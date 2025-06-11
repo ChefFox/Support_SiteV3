@@ -15,6 +15,6 @@ function checkPassword() {
         setTimeout(() => {
             overlay.classList.remove("hidden");
             overlay.classList.add("visible");
-        }, 3500);
+        }, 3000);
     }
 }
