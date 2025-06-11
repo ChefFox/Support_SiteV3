@@ -6,21 +6,71 @@
     <title>Support Evidence – SideCode Gigs</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .section-divider {
-            background: #0a662e;
-            color: white;
-            padding: 1em;
+        body {
+            font-family: Arial, Calibri, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: white;
+            color: #222;
+        }
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+        h1, h2 {
             text-align: center;
+        }
+        .section-divider {
+            background: #81c784;
+            color: black;
+            padding: 0.75em;
             font-weight: bold;
-            margin-top: 3em;
+            text-align: center;
+            max-width: 800px;
+            margin: 3em auto 1em;
         }
         .caption {
             text-align: center;
             font-style: italic;
             margin-bottom: 1em;
         }
-        .image-grid img {
+        .image-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 1em;
+            padding: 1em 0;
+        }
+        .carousel img {
+            flex: 0 0 auto;
+            max-height: 300px;
             cursor: pointer;
+        }
+        .downloads {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .downloads li {
+            margin: 0.5em 0;
+        }
+        .downloads a {
+            background: #81c784;
+            color: black;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #444;
+            margin: 2em 0;
         }
         .modal {
             display: none;
@@ -56,7 +106,7 @@
     <div class="section-divider">Job Offers</div>
     <section>
         <p class="caption">These real job offers show strong demand for Microsoft Copilot trainers — supporting my career move and repayment plan.</p>
-        <div class="image-grid" id="carousel">
+        <div class="carousel">
             <img src="assets/images/03-job-offer-ryan.png" alt="Job Offer Ryan">
             <img src="assets/images/04-job-offer-ian-1.png" alt="Job Offer Ian 1">
             <img src="assets/images/05-job-offer-ian-2.png" alt="Job Offer Ian 2">
@@ -67,13 +117,13 @@
     <div class="section-divider">Training Costs</div>
     <section>
         <p class="caption">The image below shows the cost of PL-900, PL-200, PL-400, and Train the Trainer certification — evidence of my financial investment in retraining.</p>
-        <img src="assets/images/06-training-costs.png" alt="Training bundle pricing table">
+        <img src="assets/images/06-training-costs.png" alt="Training bundle pricing table" style="width: 100%; max-width: 100%;">
     </section>
 
     <div class="section-divider">Roger the Dog</div>
     <section>
         <p class="caption">Roger — who needs a doggie dentist — represents what we're also trying to protect. Family, wellbeing, and forward planning.</p>
-        <img src="assets/images/07-roger-dentist.jpeg" alt="Roger looking out car window" style="max-width:600px; width:100%; height:auto; display:block; margin:auto;">
+        <img src="assets/images/07-roger-dentist.jpeg" alt="Roger looking out car window" style="max-width:600px; width:100%; display:block; margin:auto;">
     </section>
 
     <div class="section-divider">Document Downloads</div>
@@ -89,12 +139,11 @@
         <p>© SideCode Gigs – Built fast, shared with purpose. No other claims made.</p>
     </footer>
 
-    <!-- Image Zoom Modal -->
     <div id="imgModal" class="modal" onclick="this.style.display='none'">
         <img class="modal-content" id="modalImage">
     </div>
     <script>
-        document.querySelectorAll('.image-grid img, section img').forEach(img => {
+        document.querySelectorAll('img').forEach(img => {
             img.addEventListener('click', () => {
                 document.getElementById('modalImage').src = img.src;
                 document.getElementById('imgModal').style.display = 'block';
