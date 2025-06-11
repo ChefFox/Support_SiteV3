@@ -71,12 +71,14 @@
 
   <h2>Halifax Mortgage Payments</h2>
   <div class="image-row">
+    <img onclick="showModal(this.src)" src="assets/images/78b100bb-b4f1-4b7d-9364-b0ff05ebf46d.png" alt="Freelance Job" style="max-width: 100%; cursor: pointer;" />
     <img class="enlarge" src="assets/images/01-halifax-mortgage.png" alt="Mortgage" />
     <img class="enlarge" src="assets/images/02-halifax-equity.png" alt="Equity" />
   </div>
 
   <h2>Job Offers</h2>
   <div class="image-row">
+    <img onclick="showModal(this.src)" src="assets/images/78b100bb-b4f1-4b7d-9364-b0ff05ebf46d.png" alt="Freelance Job" style="max-width: 100%; cursor: pointer;" />
     <img class="enlarge" src="assets/images/03-job-offer-ryan.png" alt="Job 1" />
     <img class="enlarge" src="assets/images/04-job-offer-ian-1.png" alt="Job 2" />
     <img class="enlarge" src="assets/images/05-job-offer-ian-2.png" alt="Job 3" />
@@ -101,5 +103,47 @@
   <div class="footer-note">
     © SideCode Gigs – Built fast, shared with purpose. Version 4.7
   </div>
+
+<style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+  }
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80%;
+  }
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+<script>
+  function showModal(src) {
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImage");
+    modal.style.display = "block";
+    modalImg.src = src;
+  }
+  function closeModal() {
+    document.getElementById("imgModal").style.display = "none";
+  }
+</script>
+<div id="imgModal" class="modal" onclick="closeModal()">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
 </body>
 </html>
