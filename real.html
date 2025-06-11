@@ -3,8 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Support Site V4_6</title>
-  <link rel="stylesheet" href="assets/style.css" />
+  <title>Support Site V4_7</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,30 +12,22 @@
       margin: auto;
       padding: 2em;
     }
-    .section-title {
-      font-weight: bold;
-      margin-top: 3em;
-      margin-bottom: 0.5em;
-      padding-bottom: 0.3em;
-      border-bottom: 4px solid #4CAF50;
-      display: inline-block;
+    h2 {
+      margin-top: 2.5em;
+      border-bottom: 2px solid #4CAF50;
+      padding-bottom: 0.2em;
     }
-    .carousel {
+    .image-row {
       display: flex;
-      overflow-x: auto;
+      flex-wrap: wrap;
       gap: 1em;
-      scroll-snap-type: x mandatory;
+      justify-content: flex-start;
     }
-    .carousel img {
-      flex: 0 0 auto;
-      max-width: 300px;
-      height: auto;
-      scroll-snap-align: center;
-      border-radius: 8px;
-    }
-    img.stacked {
+    .image-row img,
+    .stacked img {
       max-width: 100%;
-      margin-top: 1em;
+      height: auto;
+      cursor: zoom-in;
     }
     .download-links {
       margin-top: 2em;
@@ -50,50 +41,65 @@
       border-radius: 5px;
       text-decoration: none;
     }
-    .wizard-link {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 40px;
-      height: auto;
-      cursor: pointer;
-    }
     .footer-note {
       font-size: 0.9em;
       margin-top: 4em;
       text-align: center;
       color: #444;
     }
+    .loan-link {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("img.enlarge").forEach(img => {
+        img.addEventListener("click", () => {
+          const win = window.open();
+          win.document.write('<img src="' + img.src + '" style="width:100%">');
+        });
+      });
+    });
+  </script>
 </head>
 <body>
-  <img src="assets/images/wizard.png" class="wizard-link" alt="Wizard" onclick="window.location.href='loan-details.html'" />
+  <a class="loan-link" href="loan-details.html">📑 View Full Loan Breakdown</a>
 
-  <h2 class="section-title">📄 Halifax Evidence</h2>
-  <img src="assets/images/01-halifax-mortgage.png" alt="Mortgage" class="stacked" />
-  <img src="assets/images/02-halifax-equity.png" alt="Equity" class="stacked" />
-
-  <h2 class="section-title">📋 Job Offers</h2>
-  <div class="carousel">
-    <img src="assets/images/03-job-offer-ryan.png" alt="Job Offer 1" />
-    <img src="assets/images/04-job-offer-ian-1.png" alt="Job Offer 2" />
-    <img src="assets/images/05-job-offer-ian-2.png" alt="Job Offer 3" />
+  <h2>Halifax Mortgage Payments</h2>
+  <div class="image-row">
+    <img class="enlarge" src="assets/images/01-halifax-mortgage.png" alt="Mortgage" />
+    <img class="enlarge" src="assets/images/02-halifax-equity.png" alt="Equity" />
   </div>
 
-  <h2 class="section-title">📈 Training Costs</h2>
-  <img src="assets/images/06-training-costs.png" alt="Training" class="stacked" />
+  <h2>Job Offers</h2>
+  <div class="image-row">
+    <img class="enlarge" src="assets/images/03-job-offer-ryan.png" alt="Job 1" />
+    <img class="enlarge" src="assets/images/04-job-offer-ian-1.png" alt="Job 2" />
+    <img class="enlarge" src="assets/images/05-job-offer-ian-2.png" alt="Job 3" />
+  </div>
 
-  <h2 class="section-title">🐶 Roger the Dog</h2>
-  <img src="assets/images/07-roger-dentist.jpeg" alt="Roger" class="stacked" style="max-width: 600px;" />
+  <h2>Training Costs</h2>
+  <div class="stacked">
+    <img class="enlarge" src="assets/images/06-training-costs.png" alt="Training Costs" />
+  </div>
 
-  <h2 class="section-title">📂 Document Downloads</h2>
+  <h2>Roger the Dog</h2>
+  <div class="stacked">
+    <img class="enlarge" src="assets/images/07-roger-dentist.jpeg" alt="Roger" style="max-width:600px;" />
+  </div>
+
+  <h2>Document Downloads</h2>
   <div class="download-links">
     <a href="assets/downloads/deed-of-trust.pdf" download>Deed of Trust (PDF)</a>
     <a href="assets/downloads/loan-agreement.pdf" download>Loan Agreement (PDF)</a>
   </div>
 
   <div class="footer-note">
-    © SideCode Gigs – Built fast, shared with purpose. Version 4.6
+    © SideCode Gigs – Built fast, shared with purpose. Version 4.7
   </div>
 </body>
 </html>
