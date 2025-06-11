@@ -5,9 +5,20 @@
     <meta charset="UTF-8">
     <title>You Shall Not Pass</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .fade {
+            transition: opacity 1.5s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;
+        }
+        .visible {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body class="splash">
-    <div class="overlay hidden" id="overlay">
+    <div class="overlay fade hidden" id="overlay">
         <h1>...unless you have the password.</h1>
         <input type="password" id="password" placeholder="Enter password" />
         <button onclick="checkPassword()">Enter</button>
@@ -15,8 +26,9 @@
     <script src="splash.js"></script>
     <script>
         setTimeout(() => {
-            document.getElementById("overlay").classList.remove("hidden");
-            document.getElementById("overlay").classList.add("visible");
+            const overlay = document.getElementById("overlay");
+            overlay.classList.remove("hidden");
+            overlay.classList.add("visible");
         }, 5000);
     </script>
 </body>
